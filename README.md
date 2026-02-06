@@ -42,7 +42,9 @@ npm run dev
 ### **Tables Structure**
 
 ```sql
--- 1. Candidates Table (Core Profiles)
+-- ================================
+-- Candidates Table
+-- ================================
 CREATE TABLE candidates (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -50,7 +52,9 @@ CREATE TABLE candidates (
     skills TEXT
 );
 
--- 2. Evaluations Table (AI Scores)
+-- ================================
+-- Evaluations Table
+-- ================================
 CREATE TABLE evaluations (
     id INT AUTO_INCREMENT PRIMARY KEY,
     candidate_id INT NOT NULL,
@@ -60,13 +64,33 @@ CREATE TABLE evaluations (
     FOREIGN KEY (candidate_id) REFERENCES candidates(id)
 );
 
--- 3. Rankings Table (Auto-updated)
+-- ================================
+-- Rankings Table
+-- ================================
 CREATE TABLE rankings (
     candidate_id INT PRIMARY KEY,
     total_score INT,
     rank_position INT,
     FOREIGN KEY (candidate_id) REFERENCES candidates(id)
 );
+
+-- ================================
+-- Trigger to auto-update rankings
+-- ================================
+DELIMITER $$
+
+CREATE TRIGGER update_rankings
+AFTER INSERT ON evaluations
+FOR EACH ROW
+BEGIN
+    INSERT INTO rankings (candidate_id, total_score)
+    VALUES (
+        NEW.candidate_id,
+        NEW.crisis_management + NEW.sustainability + NEW.team_motivation
+    );
+END$$
+
+DELIMITER ;
 ```
 
 ### **Key Features:**
@@ -121,7 +145,6 @@ evaluateCandidate: (candidate) => {
 ## 📊 **Dashboard Features**
 
 ### **1. Top 10 Leaderboard**
-![Leaderboard Screenshot](link-to-screenshot)
 
 **Features:**
 - ✅ **Sorting**: All columns sortable (name, experience, scores)
@@ -131,7 +154,6 @@ evaluateCandidate: (candidate) => {
 - ✅ **Visual Ranking**: Gold/Silver/Bronze badges for top 3
 
 ### **2. Skill Heatmap**
-![Heatmap Screenshot](link-to-screenshot)
 
 **Features:**
 - ✅ **Color Coding**: Green/Yellow/Red based on scores
@@ -140,7 +162,6 @@ evaluateCandidate: (candidate) => {
 - ✅ **Responsive Design**: Works on all screen sizes
 
 ### **3. Candidate Cards (40 Profiles)**
-![Cards Screenshot](link-to-screenshot)
 
 **Each card includes:**
 - ✅ **Profile**: Avatar, name, experience
@@ -202,21 +223,6 @@ const Leaderboard = ({ candidates, onShareCandidate, sharedCandidates }) => {
 
 ---
 
-## 📱 **Responsive Design**
-
-| Screen Size | Layout | Features |
-|------------|--------|----------|
-| **Desktop** | 4-column grid | Full dashboard with all panels |
-| **Tablet** | 2-column grid | Collapsed navigation |
-| **Mobile** | 1-column stack | Touch-optimized interactions |
-
-**Tested on:**
-- Chrome, Firefox, Safari (latest)
-- iPhone, Android devices
-- 1024px to 320px screen widths
-
----
-
 ## 🔄 **HR Workflow Integration**
 
 ### **"Share Candidate" Feature:**
@@ -267,54 +273,6 @@ const handleShareCandidate = (candidate) => {
 6. ✅ **CSV Export**: File downloads with correct data
 7. ✅ **Responsive**: Mobile/tablet/desktop layouts
 
-### **Sample Test Cases:**
-```javascript
-// Test 1: AI scoring logic
-expect(generateCrisisManagementScore(candidateWithSafety)).toBeGreaterThan(75);
-
-// Test 2: Sorting functionality
-expect(sortedCandidates[0].total).toBeGreaterThan(sortedCandidates[1].total);
-
-// Test 3: Search filtering
-expect(filteredCandidates.length).toBeLessThanOrEqual(originalLength);
-```
-
----
-
-## 🎯 **Evaluation Criteria Match**
-
-### **Database Design (30/30)**
-- ✅ **Schema Efficiency**: Normalized tables, proper indexing
-- ✅ **Triggers**: Auto-ranking system implemented
-- ✅ **Data Types**: Appropriate VARCHAR/INT/TEXT usage
-- ✅ **Constraints**: CHECK constraints for valid scores
-
-### **AI Prompting (30/30)**
-- ✅ **Creativity**: 3 distinct, role-specific prompts
-- ✅ **Depth**: Detailed evaluation criteria for each
-- ✅ **Rubric Clarity**: Clear 1-100 scoring system
-- ✅ **Practicality**: Directly applicable to real hiring
-
-### **Dashboard (20/20)**
-- ✅ **Usability**: Intuitive navigation, clear labels
-- ✅ **Visual Clarity**: Consistent color coding, proper spacing
-- ✅ **Interactivity**: All features respond immediately
-- ✅ **Professionalism**: Polished UI matching industry standards
-
-### **Random Data (20/20)**
-- ✅ **Realism**: Plausible names, skills, experience levels
-- ✅ **Code Quality**: Clean, documented generator script
-- ✅ **Variety**: Diverse skill combinations, score distributions
-- ✅ **Quantity**: Exactly 40 candidates as specified
-
-### **Bonus Features (Extra Credit)**
-- ✅ **HR Workflow**: Complete "Share Candidate" implementation
-- ✅ **CSV Export**: Professional data export functionality
-- ✅ **Responsive Design**: Mobile-first approach
-- ✅ **AI Comments**: Detailed feedback beyond just scores
-
-**TOTAL SCORE: 100/100 + Bonus Points**
-
 ---
 
 ## 📚 **Project Structure**
@@ -337,8 +295,8 @@ recycling-candidate-system/
 │   ├── App.css                      # Global styling
 │   ├── main.jsx                     # App entry point
 │   └── index.css                    # Base styles
-├── 📄 evaluation-prompts.md         # AI evaluation criteria
-├── 📄 schema.sql                    # MySQL database schema
+├── 📂   ai-prompts/                                                                                                                     │       └──  evaluation-prompts.md         # AI evaluation criteria
+├──📂database                                                                                                                            │       └──📄 schema.sql                   # MySQL database schema
 ├── 📄 generateCandidates.js         # Data generator script
 ├── 📄 package.json                  # Dependencies & scripts
 ├── 📄 package-lock.json             # Locked dependencies
@@ -383,84 +341,4 @@ const handleShareCandidate = async (candidate) => {
 
 ---
 
-## 🚀 **Deployment Instructions**
-
-### **Option 1: Vercel (Recommended)**
-```bash
-# 1. Install Vercel CLI
-npm i -g vercel
-
-# 2. Deploy
-vercel
-
-# 3. Set environment variables
-vercel env add DATABASE_URL mysql://...
-```
-
-### **Option 2: Netlify**
-```bash
-# 1. Build project
-npm run build
-
-# 2. Deploy dist folder
-# Drag dist/ to Netlify dashboard
-```
-
-### **Option 3: Traditional Hosting**
-```bash
-# 1. Build
-npm run build
-
-# 2. Copy files to server
-scp -r dist/* user@server:/var/www/html/
-```
-
----
-
-## 📞 **Support & Contact**
-
-For questions about this implementation:
-
-**Developer:** [Your Name]  
-**Email:** [Your Email]  
-**GitHub:** [Your GitHub Profile]  
-**LinkedIn:** [Your LinkedIn Profile]
-
-**Response Time:** Within 24 hours for any technical queries
-
----
-
-## 🔮 **Future Enhancements**
-
-1. **Real AI Integration**: Connect to OpenAI/Claude API
-2. **Database Backend**: Node.js/Express API with MySQL
-3. **Authentication**: HR login system
-4. **Analytics Dashboard**: Hiring metrics, success rates
-5. **Mobile App**: React Native version
-6. **Interview Scheduling**: Calendar integration
-7. **Reference Checks**: Automated background verification
-
----
-
-## 📜 **License**
-
-This project is created for evaluation purposes as part of the internship application process. All code is original work by [Your Name].
-
----
-
-## 🏆 **Why This Implementation Stands Out**
-
-1. **Production Quality**: Not just a prototype, but production-ready code
-2. **Attention to Detail**: Every requirement addressed plus bonus features
-3. **Clean Architecture**: Separation of concerns, reusable components
-4. **Documentation**: Professional README with setup instructions
-5. **Realistic Data**: 40 plausible candidates with varied profiles
-6. **HR Workflow**: Demonstrates understanding of real business needs
-
----
-
-**🎯 Ready for Review:** All assignment requirements are fully satisfied with professional-grade implementation.
-
----
-*Last Updated: [Current Date]*  
-*Submission for: GCP Internship - Full Stack Developer*
+**Developer:** Shubham  
