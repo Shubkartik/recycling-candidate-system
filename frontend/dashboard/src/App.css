@@ -1,0 +1,322 @@
+/* App.css */
+.dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.dashboard-header {
+  background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+  color: white;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  color: white !important;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.page-subtitle {
+  color: #cbd5e0;
+  font-size: 1rem;
+}
+
+.stats-grid {
+  margin-top: 2rem;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.main-content {
+  padding-bottom: 3rem;
+}
+
+.analytics-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  transition: box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.analytics-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.candidates-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  margin-top: 2rem;
+}
+
+.heatmap-legend {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.color-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.color-dot.high {
+  background-color: #48bb78;
+}
+
+.color-dot.medium {
+  background-color: #ecc94b;
+}
+
+.color-dot.low {
+  background-color: #f56565;
+}
+
+.dashboard-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+  color: #718096;
+}
+
+/* Responsive grid */
+@media (max-width: 1200px) {
+  .main-content .mantine-SimpleGrid-root {
+    grid-template-columns: 1fr;
+  }
+  
+  .candidates-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .candidates-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+  }
+}
+
+/* App.css - Add these styles */
+
+/* Download button styling */
+.download-btn {
+  background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+  color: white;
+  border: none;
+}
+
+.download-btn:hover {
+  background: linear-gradient(135deg, #2f855a 0%, #276749 100%);
+  transform: translateY(-1px);
+}
+
+/* Filter button styling */
+.filter-btn {
+  border: 1px solid #e2e8f0;
+  background: white;
+}
+
+.filter-btn:hover {
+  background: #f7fafc;
+  border-color: #cbd5e0;
+}
+
+/* Search container */
+.search-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+  }
+  
+  .search-container .mantine-Group-root {
+    width: 100%;
+  }
+}
+
+/* Add to App.css */
+
+/* Download All button styling */
+.download-all-btn {
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+  color: white;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.download-all-btn:hover {
+  background: linear-gradient(135deg, #3182ce 0%, #2b6cb0 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(49, 130, 206, 0.3);
+}
+
+/* Candidates grid responsive adjustments */
+.candidates-grid {
+  margin-top: 1rem;
+}
+
+/* Header buttons group */
+.header-buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Responsive adjustments for download button */
+@media (max-width: 768px) {
+  .header-buttons {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .download-all-btn {
+    width: 100%;
+  }
+}
+
+/* App.css - Add these styles */
+
+/* Share modal styles */
+.share-modal-content {
+  max-width: 500px;
+}
+
+/* Shared badge styles */
+.shared-badge {
+  background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+  color: white;
+}
+
+.shared-badge:hover {
+  background: linear-gradient(135deg, #2f855a 0%, #276749 100%);
+}
+
+/* Share button pulse animation */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(66, 153, 225, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(66, 153, 225, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(66, 153, 225, 0);
+  }
+}
+
+.share-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* HR workflow notification */
+.hr-workflow-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e2e8f0;
+  z-index: 1000;
+  max-width: 300px;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Shared candidate highlight */
+.shared-candidate-highlight {
+  border: 2px solid #4299e1 !important;
+  box-shadow: 0 0 20px rgba(66, 153, 225, 0.2) !important;
+}
+
+/* Action button container */
+.action-button-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Share stats */
+.share-stats {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(66, 153, 225, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(66, 153, 225, 0.2);
+}
+
+/* Responsive adjustments for share features */
+@media (max-width: 768px) {
+  .share-stats {
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+  }
+  
+  .hr-workflow-notification {
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+}

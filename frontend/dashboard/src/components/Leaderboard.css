@@ -1,0 +1,253 @@
+/* components/Leaderboard.css */
+.leaderboard-wrapper {
+  overflow-x: auto;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 750px; /* Updated: Reduced from 800px */
+}
+
+.leaderboard-table thead th {
+  background-color: #f8fafc;
+  padding: 1rem 0.75rem; /* Updated: Reduced horizontal padding */
+  font-weight: 600;
+  color: #4a5568;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.leaderboard-table tbody tr {
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.leaderboard-table tbody tr:hover {
+  background-color: #f7fafc;
+}
+
+.leaderboard-table tbody tr.top-three {
+  background-color: #f0fff4;
+}
+
+.rank-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; /* Updated: Reduced from 36px */
+  height: 32px; /* Updated: Reduced from 36px */
+  border-radius: 8px; /* Updated: Reduced from 10px */
+  font-weight: 700;
+  margin: 0 auto;
+  font-size: 0.85rem; /* Added: Smaller font for rank */
+}
+
+.rank-1 {
+  background: linear-gradient(135deg, #fef3c7, #fbbf24);
+  color: #92400e;
+}
+
+.rank-2 {
+  background: linear-gradient(135deg, #e0f2fe, #60a5fa);
+  color: #1e40af;
+}
+
+.rank-3 {
+  background: linear-gradient(135deg, #f5f3ff, #a78bfa);
+  color: #5b21b6;
+}
+
+.candidate-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.candidate-name {
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.25rem;
+}
+
+.candidate-skills {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.experience-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px; /* Updated: Reduced from 0.25rem */
+}
+
+.years {
+  font-size: 1.1rem; /* Updated: Reduced from 1.25rem */
+  font-weight: 700;
+  color: #2d3748;
+}
+
+.years-label {
+  font-size: 0.8rem; /* Updated: Reduced from 0.875rem */
+  color: #718096;
+}
+
+.score-display {
+  display: flex;
+  align-items: baseline;
+  gap: 1px; /* Updated: Reduced from 0.25rem */
+}
+
+.score-value {
+  font-size: 1.3rem; /* Updated: Reduced from 1.5rem */
+  font-weight: 700;
+  color: #2b6cb0;
+}
+
+.score-max {
+  font-size: 0.8rem; /* Updated: Reduced from 0.875rem */
+  color: #a0aec0;
+}
+
+/* Center align Rank column (1st column) */
+.leaderboard-table td:nth-child(1) {
+  text-align: center;
+  width: 60px; /* Added: Reduced column width */
+}
+
+.leaderboard-table th:nth-child(1) {
+  text-align: center;
+  width: 60px; /* Added: Reduced column width */
+}
+
+/* Center align Experience column (3rd column) */
+.leaderboard-table td:nth-child(3) {
+  text-align: center;
+  width: 80px; /* Added: Reduced column width */
+}
+
+.leaderboard-table th:nth-child(3) {
+  text-align: center;
+  width: 80px; /* Added: Reduced column width */
+}
+
+/* Center align Total Score column (4th column) */
+.leaderboard-table td:nth-child(4) {
+  text-align: center;
+  width: 100px; /* Added: Reduced column width */
+}
+
+.leaderboard-table th:nth-child(4) {
+  text-align: center;
+  width: 100px; /* Added: Reduced column width */
+}
+
+/* Center align Status column (5th column) */
+.leaderboard-table td:nth-child(5) {
+  text-align: center;
+  width: 90px; /* Added: Reduced column width */
+}
+
+.leaderboard-table th:nth-child(5) {
+  text-align: center;
+  width: 90px; /* Added: Reduced column width */
+}
+
+/* Center align Actions column (6th column) */
+.leaderboard-table td:nth-child(6) {
+  text-align: center;
+  width: 70px; /* Added: Reduced column width */
+}
+
+.leaderboard-table th:nth-child(6) {
+  text-align: center;
+  width: 70px; /* Added: Reduced column width */
+}
+
+/* Center the status badge within the cell */
+.leaderboard-table td:nth-child(5) .mantine-Badge-root {
+  display: inline-flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/* Ensure action icons are centered */
+.leaderboard-table td:nth-child(6) .mantine-ActionIcon-root {
+  margin: 0 auto;
+}
+
+/* Sort button alignment */
+.leaderboard-table th button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+}
+
+/* Ensure the candidate info stays left-aligned */
+.leaderboard-table td:nth-child(2) {
+  text-align: left;
+  min-width: 250px;
+}
+
+.leaderboard-table th:nth-child(2) {
+  text-align: left;
+  min-width: 250px;
+}
+
+/* Scrollable container styling */
+.leaderboard-scroll-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+/* Custom scrollbar styling */
+.leaderboard-scroll-container::-webkit-scrollbar {
+  height: 10px;
+}
+
+.leaderboard-scroll-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+  margin: 0 4px;
+}
+
+.leaderboard-scroll-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+  border: 2px solid #f1f1f1;
+}
+
+.leaderboard-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* For Firefox */
+.leaderboard-scroll-container {
+  scrollbar-width: thin;
+  scrollbar-color: #c1c1c1 #f1f1f1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .leaderboard-scroll-container {
+    margin: 0 -16px;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+  }
+  
+  .leaderboard-table thead th {
+    padding: 1rem 0.5rem;
+  }
+}

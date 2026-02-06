@@ -1,0 +1,195 @@
+/* components/CandidateCard.css */
+.candidate-card {
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 650px; /* Fixed minimum height */
+}
+
+.candidate-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  border-radius: 12px 12px 0 0;
+  flex-shrink: 0;
+}
+
+.skills-section {
+  margin: 1rem 0;
+  padding: 0 0.5rem;
+  flex-shrink: 0;
+  min-height: 72px; /* Fixed height for skills section */
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.scores-section {
+  margin: 1.5rem 0;
+  padding: 0 0.5rem;
+  flex-shrink: 0;
+  min-height: 180px; /* Fixed height for scores section */
+}
+
+.score-item {
+  margin-bottom: 1rem;
+}
+
+.score-item:last-child {
+  margin-bottom: 0;
+}
+
+.total-score-section {
+  background: linear-gradient(135deg, #f7fafc, #edf2f7);
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  margin: 1rem 0;
+  flex-shrink: 0;
+}
+
+.star-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.share-button {
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.share-button:hover {
+  transform: translateY(-2px);
+}
+
+/* AI Section Styling */
+.ai-evaluation-section {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-top: 1px solid #bae6fd;
+  border-bottom: 1px solid #bae6fd;
+}
+
+.ai-comment {
+  padding: 0.5rem;
+  margin: 0.25rem 0;
+  background: white;
+  border-radius: 6px;
+  border-left: 3px solid #4299e1;
+}
+
+.ai-button {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  border: none;
+}
+
+.ai-button:hover {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+}
+
+/* Consistent spacing */
+.section-spacer {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+/* Ensure all cards have same visual structure */
+.fixed-height-section {
+  min-height: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Action buttons container */
+.action-buttons-container {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+  flex-shrink: 0;
+}
+
+/* Grid layout for consistent card heights */
+.candidates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.candidates-grid > * {
+  height: 100%;
+}
+
+/* AI section fixed height container */
+.ai-section-container {
+  flex-shrink: 0;
+  min-height: 64px;
+  transition: min-height 0.3s ease;
+  background: #f8f9fa;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* AI section when expanded */
+.ai-expanded {
+  min-height: 150px;
+  background: #f0f9ff;
+}
+
+/* AI placeholder styling */
+.ai-placeholder {
+  color: #a0aec0;
+  text-align: center;
+  width: 100%;
+  font-size: 0.875rem;
+}
+
+/* Smooth collapse/expand transitions */
+.ai-content {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Consistent button heights */
+.action-button {
+  height: 42px;
+  flex: 1;
+}
+
+/* Make all cards equal height in grid */
+.equal-height-cards {
+  display: flex;
+}
+
+.equal-height-cards .candidate-card {
+  flex: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .candidate-card {
+    min-height: 600px;
+  }
+  
+  .scores-section {
+    min-height: 160px;
+  }
+  
+  .skills-section {
+    min-height: 64px;
+  }
+}

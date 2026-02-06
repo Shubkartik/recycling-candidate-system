@@ -1,0 +1,200 @@
+# ============================================
+# Operating System Files
+# ============================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ============================================
+# Editor/IDE Files
+# ============================================
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.vscode/*.code-workspace
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-*
+
+# Vim
+*.swp
+*.swo
+*~
+
+# ============================================
+# Node.js Dependencies
+# ============================================
+# Frontend dependencies
+frontend/dashboard/node_modules/
+frontend/dashboard/.npm
+frontend/dashboard/.yarn-integrity
+frontend/dashboard/.yarn/cache
+frontend/dashboard/.yarn/unplugged
+frontend/dashboard/.yarn/build-state.yml
+frontend/dashboard/.yarn/install-state.gz
+frontend/dashboard/.pnp.*
+
+# Root dependencies
+node_modules/
+.npm
+.yarn-integrity
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# ============================================
+# Build Output
+# ============================================
+# Vite/React build
+frontend/dashboard/dist/
+frontend/dashboard/build/
+frontend/dashboard/.next/
+frontend/dashboard/out/
+
+# Coverage directories
+frontend/dashboard/coverage/
+*.lcov
+
+# Production builds
+dist/
+build/
+out/
+
+# ============================================
+# Environment Variables
+# ============================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+
+# Sensitive data
+*.env
+secrets.json
+config.json
+credentials.json
+
+# ============================================
+# Database & Data Files
+# ============================================
+# MySQL/MariaDB
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+*.backup
+*.log
+
+# Generated data (can be regenerated)
+data/candidates.json  # ⚠️ KEEP THIS COMMENTED if you want to include sample data
+
+# ============================================
+# OS-Specific Files
+# ============================================
+# Windows
+[Ll]ogs/
+[Pp]ackages/
+[Tt]emp/
+[Uu]ser/
+
+# Linux/Unix
+*~
+
+# macOS
+.AppleDouble
+.LSOverride
+Icon
+__MACOSX/
+
+# ============================================
+# Dependency Directories
+# ============================================
+# Various package managers
+frontend/dashboard/.pnpm-store/
+frontend/dashboard/bower_components/
+frontend/dashboard/jspm_packages/
+
+# ============================================
+# Testing
+# ============================================
+# Jest
+frontend/dashboard/.jest/
+frontend/dashboard/jest.config.js
+
+# Cypress
+frontend/dashboard/cypress/videos/
+frontend/dashboard/cypress/screenshots/
+
+# Playwright
+frontend/dashboard/test-results/
+frontend/dashboard/playwright-report/
+frontend/dashboard/playwright/.cache/
+
+# ============================================
+# Miscellaneous
+# ============================================
+# Package manager specific
+frontend/dashboard/package-lock.json  # ⚠️ Include if using yarn
+frontend/dashboard/yarn.lock  # ⚠️ Include if using npm
+package-lock.json  # Root level
+yarn.lock  # Root level
+
+# Temporary files
+*.tmp
+*.temp
+.temp/
+
+# TypeScript
+*.tsbuildinfo
+
+# Next.js
+frontend/dashboard/.next/
+
+# Parcel
+frontend/dashboard/.parcel-cache/
+frontend/dashboard/.cache/
+
+# ============================================
+# Project Specific
+# ============================================
+# Generated files (can be regenerated)
+frontend/dashboard/src/services/__mocks__/
+frontend/dashboard/src/__tests__/__snapshots__/
+
+# Local development
+.local-*
+
+# ============================================
+# DO NOT IGNORE (Important for submission)
+# ============================================
+# !frontend/dashboard/package.json          # Keep - required
+# !frontend/dashboard/package-lock.json     # Keep - shows exact versions
+# !data/candidates.json                     # Keep - sample data for evaluation
+# !database/schema.sql                      # Keep - required for database design
+# !ai-prompts/evaluation-prompts.md         # Keep - required for AI evaluation
+# !generateCandidates.js                    # Keep - shows data generation logic
+# !README.md                                # Keep - documentation

@@ -1,0 +1,13 @@
+{
+  "name": "recycling-candidate-system",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "generate": "node generateCandidates.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

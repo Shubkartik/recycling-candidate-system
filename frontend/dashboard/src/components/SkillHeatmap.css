@@ -1,0 +1,321 @@
+/* components/SkillHeatmap.css */
+.heatmap-container {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  height: 100%;
+}
+
+.legend-container {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+  border: 1px solid #e5e7eb;
+}
+
+.legend-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+.legend-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.color-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.score-excellent {
+  background: #dcfce7;
+  border: 2px solid #22c55e;
+}
+
+.score-good {
+  background: #bbf7d0;
+  border: 2px solid #16a34a;
+}
+
+.score-average {
+  background: #fef3c7;
+  border: 2px solid #f59e0b;
+}
+
+.score-fair {
+  background: #fed7aa;
+  border: 2px solid #f97316;
+}
+
+.score-poor {
+  background: #fee2e2;
+  border: 2px solid #ef4444;
+}
+
+.legend-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.heatmap-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 850px; /* Ensure table has minimum width for all columns */
+}
+
+.heatmap-table th {
+  background: #f8fafc;
+  padding: 16px 12px;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.heatmap-table td {
+  padding: 16px 12px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.col-name {
+  width: 200px;
+}
+
+.col-skill {
+  width: 180px;
+}
+
+.skill-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.skill-header span {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.skill-average {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.average-label {
+  font-size: 0.625rem;
+  color: #9ca3af;
+}
+
+.average-value {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #1e40af;
+}
+
+.even-row {
+  background: #fafafa;
+}
+
+.odd-row {
+  background: white;
+}
+
+.name-cell {
+  vertical-align: middle;
+}
+
+.candidate-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rank-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: #f3f4f6;
+  color: #6b7280;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.candidate-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.skill-cell {
+  vertical-align: middle;
+}
+
+.score-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 8px;
+  min-height: 70px;
+}
+
+.score-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.score-excellent .score-number {
+  color: #166534;
+}
+
+.score-good .score-number {
+  color: #15803d;
+}
+
+.score-average .score-number {
+  color: #92400e;
+}
+
+.score-fair .score-number {
+  color: #c2410c;
+}
+
+.score-poor .score-number {
+  color: #991b1b;
+}
+
+.score-label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.score-excellent .score-label {
+  color: #166534;
+}
+
+.score-good .score-label {
+  color: #15803d;
+}
+
+.score-average .score-label {
+  color: #92400e;
+}
+
+.score-fair .score-label {
+  color: #c2410c;
+}
+
+.score-poor .score-label {
+  color: #991b1b;
+}
+
+.heatmap-footer {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 2px solid #f3f4f6;
+}
+
+.summary-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.summary-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.summary-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* NEW: Scrollable container styles - ADDED AT THE END */
+.heatmap-scroll-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+/* Custom scrollbar styling */
+.heatmap-scroll-container::-webkit-scrollbar {
+  height: 10px;
+}
+
+.heatmap-scroll-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+  margin: 0 4px;
+}
+
+.heatmap-scroll-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+  border: 2px solid #f1f1f1;
+}
+
+.heatmap-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* For Firefox */
+.heatmap-scroll-container {
+  scrollbar-width: thin;
+  scrollbar-color: #c1c1c1 #f1f1f1;
+}
+
+/* Prevent text wrapping in table cells */
+.heatmap-table td,
+.heatmap-table th {
+  white-space: nowrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .heatmap-scroll-container {
+    margin: 0 -16px;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+  }
+}
