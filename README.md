@@ -2,8 +2,6 @@
 
 A **production-ready evaluation system** for selecting recycling plant managers with AI-powered candidate assessment, interactive dashboard, and HR workflow automation.
 
-**Live Demo:** [Add Vercel/Netlify URL here]
-
 ---
 
 ## 📋 **Assignment Requirements Fulfilled**
@@ -15,7 +13,6 @@ A **production-ready evaluation system** for selecting recycling plant managers 
 | **3. 40 Sample Candidates** | ✅ **COMPLETE** | `candidates.json` with realistic profiles |
 | **4. AI Evaluation Prompts** | ✅ **COMPLETE** | `evaluation-prompts.md` with 3 detailed rubrics |
 | **5. React + Vite Dashboard** | ✅ **COMPLETE** | Full-featured dashboard with all components |
-| **6. HR Workflow (Bonus)** | ✅ **COMPLETE** | "Share Candidate" functionality |
 
 ---
 
